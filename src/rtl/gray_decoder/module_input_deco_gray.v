@@ -18,7 +18,7 @@ module module_input_deco_gray # (
     reg [WIDTH - 1 : 0]               gray_code_sync_r;
     reg [WIDTH_INPUT_COUNTER - 1 : 0] in_count;
 
-    reg en_lecture;
+    reg en_read;
 
     //Input refresh counter
     always @ (posedge clk_i) begin
@@ -26,7 +26,7 @@ module module_input_deco_gray # (
         if(!rst_i) begin
         
             in_count <= INPUT_REFRESH - 1;
-            en_lecture <= 0;
+            en_read <= 0;
         end
 
         else begin 
@@ -34,13 +34,13 @@ module module_input_deco_gray # (
             if (in_count == 0) begin
                 
                 in_count <= INPUT_REFRESH - 1;
-                en_lecture <= 1;
+                en_read <= 1;
             end
 
             else begin
 
                 in_count <= in_count - 1'b1;
-                en_lecture <= 0;
+                en_read <= 0;
             end
         end
     end
@@ -55,7 +55,7 @@ module module_input_deco_gray # (
 
         else begin 
 
-            if(en_lecture) begin
+            if(en_read) begin
 
                 gray_code_sync_r <= gray_code_i;
             end

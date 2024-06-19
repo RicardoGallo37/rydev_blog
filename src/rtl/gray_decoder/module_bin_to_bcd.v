@@ -27,7 +27,7 @@ module module_bin_to_bcd # (
     localparam ADD_TENS  = 1;
     localparam ADD_UNITS = 2;
     localparam SHIFT     = 3;
-    localparam END       = 4;
+    localparam END_OP    = 4;
 
     always @ (posedge clk_i) begin
 
@@ -103,7 +103,7 @@ module module_bin_to_bcd # (
                         double_dabble_r  <= double_dabble_r << 1;
                         shift_count      <= shift_count - 1;
                         ready            <= 0;
-                        state            <= END;
+                        state            <= END_OP;
                     end
 
                     else begin
@@ -116,7 +116,7 @@ module module_bin_to_bcd # (
                     
                 end
 
-                END: begin
+                END_OP: begin
 
                     double_dabble_r  <= double_dabble_r;
                     shift_count      <= shift_count;
