@@ -70,7 +70,7 @@ module module_7_segments # (
 
     //Time Multiplexed Digits
     
-    always @(ten_unit) begin
+    always @(ten_unit, bcd_i) begin
 
         digit_o = 0;
         anode_o = 2'b11;
