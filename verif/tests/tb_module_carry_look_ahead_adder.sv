@@ -52,5 +52,10 @@ module tb_carry_look_ahead_adder;
     $finish;
   end
 
+  initial begin
+      $dumpfile("tb_carry_look_ahead_adder.vcd");
+      $dumpvars(0, tb_carry_look_ahead_adder);
+  end
+
 endmodule
 

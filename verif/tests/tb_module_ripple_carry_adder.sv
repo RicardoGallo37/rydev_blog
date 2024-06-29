@@ -50,6 +50,11 @@ module tb_ripple_carry_adder;
     $finish;
   end
 
+  initial begin
+      $dumpfile("tb_ripple_carry_adder.vcd");
+      $dumpvars(0, tb_ripple_carry_adder);
+  end
+
 endmodule
 
 

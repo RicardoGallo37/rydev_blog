@@ -282,4 +282,9 @@ module tb_top_module_UART;
         if (test_numb == 2) 
             $finish;
     end
+
+    initial begin
+        $dumpfile("tb_top_module_UART.vcd");
+        $dumpvars(0, tb_top_module_UART);
+    end
 endmodule

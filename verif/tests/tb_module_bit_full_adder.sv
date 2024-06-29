@@ -47,5 +47,10 @@ module tb_bit_full_adder;
     $finish;
   end
 
+  initial begin
+      $dumpfile("tb_bit_full_adder.vcd");
+      $dumpvars(0, tb_bit_full_adder);
+  end
+
 endmodule
 
