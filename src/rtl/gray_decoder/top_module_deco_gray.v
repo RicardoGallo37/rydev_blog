@@ -4,7 +4,7 @@
 //In this project, the user inputs a 4-bit Gray code to be decoded into binary on LEDs 
 //and displayed in decimal on a multiplexed 7-segment display.
 
-module module_top_deco_gray # (
+module top_module_deco_gray # (
 
      parameter INPUT_REFRESH = 2700000,
      parameter DISPLAY_REFRESH = 27000

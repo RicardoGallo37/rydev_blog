@@ -43,9 +43,19 @@ module module_data_register_uart
     assign data1_o.data = rf_r [0];
     assign data2_o.data = rf_r [addr_i];
     
-    assign data1_o.zero = data1_i.zero;
-    assign data2_o.zero = data2_i.zero;
-          
+    //to avoid warnings, "data.zero" is not used
+    always_comb begin
+        
+        if (data1_i.zero == '0) 
+            data1_o.zero = data1_i.zero;
+            
+        else  data1_o.zero = '0;
+        
+        if (data2_i.zero == '0) 
+            data2_o.zero = data2_i.zero;
+            
+        else  data2_o.zero = '0;
+    end      
 
 endmodule
 

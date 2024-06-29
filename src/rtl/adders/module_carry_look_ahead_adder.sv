@@ -17,12 +17,12 @@ module module_carry_look_ahead_adder # (
     // Declaration of internal signals    
     logic [CLA_WIDTH - 1 : 0] f_p;
     logic [CLA_WIDTH - 1 : 0] f_g;
-    logic [CLA_WIDTH - 1 : 0] c;
-    logic [CLA_WIDTH - 1 : 0] s;
+    logic [CLA_WIDTH  : 0]    c;
+    logic [CLA_WIDTH  : 0]    s;
   
     always @ (a_i, b_i) begin
 
-        for (int_j = 0; int_j < CLA_WIDTH; int_j = (int_j + 1)) begin
+        for (int_j = 0; int_j < CLA_WIDTH + 1; int_j = (int_j + 1)) begin
     
             c[0] = carry_i; // Input carry
         
@@ -35,7 +35,7 @@ module module_carry_look_ahead_adder # (
         end
     end
   
-    assign sum_o   = s;                 // Total output sum
-    assign carry_o = c[CLA_WIDTH - 1];  // Output carry 
+    assign sum_o   = s [CLA_WIDTH - 1 : 0] ;  // Total output sum
+    assign carry_o = c [CLA_WIDTH];           // Output carry 
 
 endmodule
