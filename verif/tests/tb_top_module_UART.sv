@@ -3,20 +3,20 @@
 module tb_top_module_UART;
 
     //input stimulus
-    logic         clk_pi;
-    logic         rst_pi;
-    logic         wr_pi;
-    logic         reg_sel_pi;
-    logic [7 : 0] entrada_pi;
-    logic         addr_pi;
-    logic         rx;
+    logic          clk_pi;
+    logic          rst_pi;
+    logic          wr_pi;
+    logic          reg_sel_pi;
+    logic [31 : 0] entrada_pi;
+    logic          addr_pi;
+    logic          rx;
     
     //output stimulus
-    logic [7 : 0] out_po;
+    logic [31 : 0] out_po;
     
     //aux 
-    logic [1 : 0] test_numb = '0;
-    logic [7 : 0] expected_out;
+    logic [1 : 0]  test_numb = '0;
+    logic [31 : 0] expected_out;
     
     //UART instace
     top_module_UART DUT (
@@ -55,10 +55,10 @@ module tb_top_module_UART;
         #10;
         reg_sel_pi  = 1;
         addr_pi     = 0;
-        entrada_pi  = 8'b11111111;
+        entrada_pi  = 32'b11111111111111111111111111111111;
         wr_pi       = 0;
 
-        expected_out = 8'b00000000;
+        expected_out = 32'b00000000000000000000000000000000;
         if (out_po !== expected_out) begin
             $display("Error: data register 0 is not empty after reset in time %0t", $time);
         end
@@ -71,10 +71,10 @@ module tb_top_module_UART;
         #10;
         reg_sel_pi  = 1;
         addr_pi     = 1;
-        entrada_pi  = 8'b10101010;
+        entrada_pi  = 32'b00000000000000000000000010101010;
         wr_pi       = 0;
 
-        expected_out = 8'b00000000;
+        expected_out = 32'b00000000000000000000000000000000;
         if (out_po !== expected_out) begin
             $display("Error: data register 1 is not empty after reset in time %0t", $time);
         end
@@ -87,10 +87,10 @@ module tb_top_module_UART;
         #10;
         reg_sel_pi  = 0;
         addr_pi     = 0;
-        entrada_pi  = 8'b11111111;
+        entrada_pi  = 32'b11111111111111111111111111111111;
         wr_pi       = 0;
 
-        expected_out = 8'b00000000;
+        expected_out = 8'b00000000000000000000000000000000;
         if (out_po !== expected_out) begin
             $display("Error: control register is not empty after reset in time %0t", $time);
         end
@@ -106,17 +106,17 @@ module tb_top_module_UART;
         #100;
         reg_sel_pi  = 1;
         addr_pi     = 0;
-        entrada_pi  = 8'b10101010;
+        entrada_pi  = 32'b00000000000000000000000010101010;
         wr_pi       = 1;
 
         #10;
         reg_sel_pi  = 1;
         addr_pi     = 0;
-        entrada_pi  = 8'b00000000;
+        entrada_pi  = 32'b00000000000000000000000000000000;
         wr_pi       = 0;
 
         //test data to send on data registers
-        expected_out = 8'b10101010;
+        expected_out = 32'b00000000000000000000000010101010;
         if (out_po !== expected_out) begin
             $display("Error: data register 0 didn't store the data to send", $time);
         end
@@ -128,9 +128,9 @@ module tb_top_module_UART;
         #10;
         reg_sel_pi  = 1;
         addr_pi     = 1;
-        entrada_pi  = 8'b00000000;
+        entrada_pi  = 32'b00000000000000000000000000000000;
         wr_pi       = 0;
-        expected_out = 8'b00000000;
+        expected_out = 32'b00000000000000000000000000000000;
         
         #7;
         if (out_po !== expected_out) begin
@@ -141,16 +141,16 @@ module tb_top_module_UART;
         #15;
         reg_sel_pi  = 0;
         addr_pi     = 0;
-        entrada_pi  = 8'b00000001;
+        entrada_pi  = 32'b00000000000000000000000000000001;
         wr_pi       = 1;
 
         #10;
         reg_sel_pi  = 0;
         addr_pi     = 0;
-        entrada_pi  = 8'b00000000;
+        entrada_pi  = 32'b00000000000000000000000000000000;
         wr_pi       = 0;
 
-        expected_out = 8'b00000001;
+        expected_out = 32'b00000000000000000000000000000001;
         if (out_po !== expected_out) begin
             $display("Error: control register didn't store the control word", $time);
         end
@@ -168,17 +168,17 @@ module tb_top_module_UART;
         #100;
         reg_sel_pi  = 1;
         addr_pi     = 0;
-        entrada_pi  = 8'b10001100;
+        entrada_pi  = 32'b00000000000000000000000010001100;
         wr_pi       = 1;
         
         #10;
         reg_sel_pi  = 1;
         addr_pi     = 0;
-        entrada_pi  = 8'b00000000;
+        entrada_pi  = 32'b00000000000000000000000000000000;
         wr_pi       = 0;
 
         //test data to send on data registers
-        expected_out = 8'b10001100;
+        expected_out = 32'b00000000000000000000000010001100;
         if (out_po !== expected_out) begin
             $display("Error: data register 0 didn't store the data to send", $time);
         end
@@ -190,10 +190,10 @@ module tb_top_module_UART;
         #10;
         reg_sel_pi  = 1;
         addr_pi     = 1;
-        entrada_pi  = 8'b00000000;
+        entrada_pi  = 32'b00000000000000000000000000000000;
         wr_pi       = 0;
         
-        expected_out = 8'b10101010;
+        expected_out = 32'b00000000000000000000000010101010;
         #7;
         if (out_po !== expected_out) begin
             $display($time, "Error: data register 1 store the data to send");
@@ -203,16 +203,16 @@ module tb_top_module_UART;
         #15;
         reg_sel_pi  = 0;
         addr_pi     = 0;
-        entrada_pi  = 8'b00000001;
+        entrada_pi  = 32'b00000000000000000000000000000001;
         wr_pi       = 1;
 
         #10;
         reg_sel_pi  = 0;
         addr_pi     = 0;
-        entrada_pi  = 8'b00000000;
+        entrada_pi  = 32'b00000000000000000000000000000000;
         wr_pi       = 0;
 
-        expected_out = 8'b00000001;
+        expected_out = 32'b00000000000000000000000000000001;
         if (out_po !== expected_out) begin
             $display("Error: control register didn't store the control word", $time);
         end
@@ -232,11 +232,11 @@ module tb_top_module_UART;
             test_numb   = test_numb + 1;
             reg_sel_pi  = 0;
             addr_pi     = 0;
-            entrada_pi  = 8'b00000000;
+            entrada_pi  = 32'b00000000000000000000000000000000;
             wr_pi       = 0;
     
             $display("transaction %d completed ", test_numb);
-            expected_out = 8'b00000000;
+            expected_out = 32'b00000000000000000000000000000000;
                 
             if (out_po !== expected_out) begin
                 $display("Error: the send bit was not cleaned ", $time);
@@ -248,7 +248,7 @@ module tb_top_module_UART;
                 
             #15;
                 
-            expected_out = 8'b00000010;
+            expected_out = 32'b00000000000000000000000000000010;
             if (out_po !== expected_out) begin
                 $display("Error: the new_rx bit was not written", $time);
             end
@@ -258,7 +258,7 @@ module tb_top_module_UART;
             end
                 
             if (test_numb == 1) begin  
-                if (DUT.DATA_REG.rf_r [1] !== 8'b10101010) begin
+                if (DUT.DATA_REG.rf_r [1] !== 32'b00000000000000000000000010101010) begin
                     $display("Error: wrong data received", $time);
                 end
                 
@@ -268,7 +268,7 @@ module tb_top_module_UART;
             end
             
             if (test_numb == 2) begin
-                if (DUT.DATA_REG.rf_r [1] !== 8'b10001100) begin
+                if (DUT.DATA_REG.rf_r [1] !== 32'b00000000000000000000000010001100) begin
                     $display("Error: wrong data received", $time);
                 end
                 
