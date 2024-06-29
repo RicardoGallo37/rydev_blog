@@ -68,6 +68,8 @@ module top_module_UART
         .tx             (tx)
     );
 
+    assign data_out_UART [31 : 8] = '0;
+    
     module_fsm_rx RX (
 
         .clk_i           (clk_10MHz),
@@ -82,7 +84,7 @@ module top_module_UART
         .clk_i          (clk_10MHz),
         .reset_i        (rst),
         .tx_rdy         (tx_rdy), 
-        .control_tx_i   (data_out_control),
+        .control_tx_i   (data_out_control [0]),
         .tx_start       (tx_start),
         .send_clear_o   (send_clear),
         .wr             (wr_fsm)

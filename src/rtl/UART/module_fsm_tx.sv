@@ -4,11 +4,11 @@ module module_fsm_tx
 
 (
 
-    input logic clk_i,
-    input logic reset_i,
-    input logic tx_rdy,
+    input logic  clk_i,
+    input logic  reset_i,
+    input logic  tx_rdy,
 
-    input logic  [31 : 0] control_tx_i,
+    input logic  control_tx_i,
     
     output logic tx_start,
     output logic send_clear_o,
@@ -49,7 +49,7 @@ module module_fsm_tx
         case(actual_state)
         
             STATE_0: begin	
-           	    if(control_tx_i[0] == 1)
+           	    if(control_tx_i == 1)
            	     
            	        next_state = STATE_1;
 				else 
