@@ -3,7 +3,7 @@
 module tb_carry_look_ahead_adder;
 
   // Parameter for the CLA adder width
-  parameter CLA_WIDTH = 8;
+  parameter CLA_WIDTH = 16;
 
   // Testbench signals
   logic [CLA_WIDTH - 1 : 0] a_i;
@@ -19,7 +19,7 @@ module tb_carry_look_ahead_adder;
   // Instantiate the carry look-ahead adder
   module_carry_look_ahead_adder #(
     .CLA_WIDTH(CLA_WIDTH)
-  ) uut (
+  ) DUT (
     .a_i(a_i),
     .b_i(b_i),
     .carry_i(carry_i),
@@ -40,7 +40,7 @@ module tb_carry_look_ahead_adder;
       {expected_carry_o, expected_sum_o} = a_i + b_i + carry_i;
 
       // Wait for a short time to simulate
-      #10;
+      #30;
 
       // Check the outputs
       assert(sum_o == expected_sum_o && carry_o == expected_carry_o)

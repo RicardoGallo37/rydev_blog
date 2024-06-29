@@ -14,7 +14,7 @@ module tb_bit_full_adder;
   logic expected_carry_o;
 
   // Instantiate the full adder
-  module_bit_full_adder uut (
+  module_bit_full_adder DUT (
     .a_i(a_i),
     .b_i(b_i),
     .carry_i(carry_i),
