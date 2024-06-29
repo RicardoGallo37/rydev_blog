@@ -124,7 +124,11 @@ begin
             if (reset = '1') or (data_index_reset = '1') then
                 data_index <= 0;
             elsif (baud_rate_clk = '1') then
-                data_index <= data_index + 1;
+                if data_index = 7 then
+                    data_index <= 0;
+                else
+                    data_index <= data_index + 1;
+                end if;
             end if;
         end if;
     end process data_index_counter;
