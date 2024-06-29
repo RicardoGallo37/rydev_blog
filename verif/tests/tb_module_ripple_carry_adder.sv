@@ -8,21 +8,22 @@ module tb_ripple_carry_adder;
   // Testbench signals
   logic [RCAWIDE - 1 : 0] a_i;
   logic [RCAWIDE - 1 : 0] b_i;
-  logic carry_i;
   logic [RCAWIDE - 1 : 0] sum_o;
+
+  logic carry_i;
   logic carry_o;
 
   // Expected outputs
   logic [RCAWIDE - 1 : 0] expected_sum_o;
-  logic expected_carry_o;
+  logic                   expected_carry_o;
 
   // Instantiate the ripple carry adder
   module_ripple_carry_adder #(.RCAWIDE(RCAWIDE)) DUT (
-    .a_i(a_i),
-    .b_i(b_i),
-    .carry_i(carry_i),
-    .sum_o(sum_o),
-    .carry_o(carry_o)
+    .a_i     (a_i),
+    .b_i     (b_i),
+    .carry_i (carry_i),
+    .sum_o   (sum_o),
+    .carry_o (carry_o)
   );
 
   // Test vectors
@@ -30,8 +31,8 @@ module tb_ripple_carry_adder;
     // Loop for 50 random test cases
     for (int i = 0; i < 50; i++) begin
       // Generate random inputs
-      a_i = $urandom % (1 << RCAWIDE);
-      b_i = $urandom % (1 << RCAWIDE);
+      a_i     = $urandom % (1 << RCAWIDE);
+      b_i     = $urandom % (1 << RCAWIDE);
       carry_i = $urandom % 2;
 
       // Calculate expected outputs
@@ -54,7 +55,6 @@ module tb_ripple_carry_adder;
       $dumpfile("tb_ripple_carry_adder.vcd");
       $dumpvars(0, tb_ripple_carry_adder);
   end
-
 endmodule
 
 

@@ -15,11 +15,11 @@ module tb_bit_full_adder;
 
   // Instantiate the full adder
   module_bit_full_adder DUT (
-    .a_i(a_i),
-    .b_i(b_i),
-    .carry_i(carry_i),
-    .sum_o(sum_o),
-    .carry_o(carry_o)
+    .a_i     (a_i),
+    .b_i     (b_i),
+    .carry_i (carry_i),
+    .sum_o   (sum_o),
+    .carry_o (carry_o)
   );
 
   // Test vectors
@@ -27,8 +27,8 @@ module tb_bit_full_adder;
     // Loop for 50 random test cases
     for (int i = 0; i < 10; i++) begin
       // Generate random inputs
-      a_i = $urandom % 2;
-      b_i = $urandom % 2;
+      a_i     = $urandom % 2;
+      b_i     = $urandom % 2;
       carry_i = $urandom % 2;
 
       // Calculate expected outputs
