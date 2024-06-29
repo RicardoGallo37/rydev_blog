@@ -44,7 +44,6 @@ module tb_top_module_UART;
         reg_sel_pi  = 0;
         entrada_pi  = '0;
         addr_pi     = 1;
-        rx          = 0;
 
         //disable reset
         #30;
@@ -227,15 +226,14 @@ module tb_top_module_UART;
     //test rx
     always @ (posedge clk_pi) begin
     
-        if (DUT.UART.receiver.rx_data_rdy) begin
+        if (DUT.UART.rx_data_rdy) begin
             
-            test_numb   = test_numb + 1;
-            reg_sel_pi  = 0;
-            addr_pi     = 0;
-            entrada_pi  = 32'b00000000000000000000000000000000;
-            wr_pi       = 0;
+            test_numb   <= test_numb + 1;
+            reg_sel_pi  <= 0;
+            addr_pi     <= 0;
+            entrada_pi  <= 32'b00000000000000000000000000000000;
+            wr_pi       <= 0;
     
-            $display("transaction %d completed ", test_numb);
             expected_out = 32'b00000000000000000000000000000000;
                 
             if (out_po !== expected_out) begin
@@ -275,7 +273,10 @@ module tb_top_module_UART;
                 else begin
                      $display("data received correctly");
                 end
-            end    
+            end  
+
+            $display("transaction %d completed ", test_numb); 
+             
             #20;
         end
 
