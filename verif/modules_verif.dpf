@@ -1,0 +1,56 @@
+---
+# Note: The contents of this file are automatically generated.
+# Any changes made by hand may be overwritten.
+version: '0.2'
+work_dir: .
+design_root_dir: .
+simulations:
+  - name: uart_sim
+    options: '-top dut_uart.tb_top_module_UART -L dut_uart +acc +b -waves waves_uart.mxd'
+  - name: gray_decoder_sim
+    options: >-
+      -top dut_gray_decoder.tb_top_module_deco_gray -L dut_gray_decoder +acc +b
+      -waves waves_gray_decoder.mxd
+source_files:
+  - language: verilog
+    path: ..\src\rtl\UART\module_control_register_uart.sv
+    library_name: dut_uart
+  - language: verilog
+    path: ..\src\rtl\UART\module_data_register_uart.sv
+    library_name: dut_uart
+  - language: verilog
+    path: ..\src\rtl\UART\module_fsm_rx.sv
+    library_name: dut_uart
+  - language: verilog
+    path: ..\src\rtl\UART\module_fsm_tx.sv
+    library_name: dut_uart
+  - language: verilog
+    path: ..\src\rtl\UART\module_mux_2_1.sv
+    library_name: dut_uart
+  - language: verilog
+    path: ..\src\rtl\UART\module_dmux_1_2.sv
+    library_name: dut_uart
+  - language: verilog
+    path: ..\src\rtl\UART\pkg_UART.sv
+    library_name: dut_uart
+  - language: verilog
+    path: ..\src\rtl\UART\top_module_UART.sv
+    library_name: dut_uart
+  - language: vhdl
+    path: ..\src\rtl\UART\UART_rx.vhd
+    library_name: dut_uart
+  - language: vhdl
+    path: ..\src\rtl\UART\UART_tx.vhd
+    library_name: dut_uart
+  - language: vhdl
+    path: ..\src\rtl\UART\UART.vhd
+    library_name: dut_uart
+  - language: verilog
+    path: tests\tb_top_module_UART.sv
+    library_name: dut_uart
+  - language: verilog
+    path: gray_decoder_list.txt
+    library_name: dut_gray_decoder
+    file_list: relative-to-file
+library_search_paths:
+  - $STD_LIBS\ieee93
