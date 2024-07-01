@@ -1,0 +1,6 @@
+# UART VHDL Files
+
+# List of Design Files
+..\src\rtl\UART\UART.vhd
+..\src\rtl\UART\UART_rx.vhd
+..\src\rtl\UART\UART_tx.vhd

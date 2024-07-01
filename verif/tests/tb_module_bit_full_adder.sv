@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_bit_full_adder;
+module tb_module_bit_full_adder;
 
   // Testbench signals
   logic a_i;
@@ -48,8 +48,8 @@ module tb_bit_full_adder;
   end
 
   initial begin
-      $dumpfile("tb_bit_full_adder.vcd");
-      $dumpvars(0, tb_bit_full_adder);
+      $dumpfile("tb_module_bit_full_adder.vcd");
+      $dumpvars(0, tb_module_bit_full_adder);
   end
 
 endmodule

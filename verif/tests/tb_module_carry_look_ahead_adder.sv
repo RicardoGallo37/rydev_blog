@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_carry_look_ahead_adder;
+module tb_module_carry_look_ahead_adder;
 
   // Parameter for the CLA adder width
   parameter CLA_WIDTH = 16;
@@ -52,8 +52,8 @@ module tb_carry_look_ahead_adder;
   end
 
   initial begin
-      $dumpfile("tb_carry_look_ahead_adder.vcd");
-      $dumpvars(0, tb_carry_look_ahead_adder);
+      $dumpfile("tb_module_carry_look_ahead_adder.vcd");
+      $dumpvars(0, tb_module_carry_look_ahead_adder);
   end
 
 endmodule

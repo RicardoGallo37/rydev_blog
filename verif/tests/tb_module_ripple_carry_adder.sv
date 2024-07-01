@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_ripple_carry_adder;
+module tb_module_ripple_carry_adder;
 
   // Parameter for the RCA adder width
   parameter RCAWIDE = 8;
@@ -52,8 +52,8 @@ module tb_ripple_carry_adder;
   end
 
   initial begin
-      $dumpfile("tb_ripple_carry_adder.vcd");
-      $dumpvars(0, tb_ripple_carry_adder);
+      $dumpfile("tb_module_ripple_carry_adder.vcd");
+      $dumpvars(0, tb_module_ripple_carry_adder);
   end
 endmodule
 

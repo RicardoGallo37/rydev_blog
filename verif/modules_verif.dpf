@@ -1,0 +1,44 @@
+---
+# Note: The contents of this file are automatically generated.
+# Any changes made by hand may be overwritten.
+version: '0.2'
+work_dir: .
+design_root_dir: .
+simulations:
+  - name: uart_sim
+    options: '-top dut_uart.tb_top_module_UART -L dut_uart +acc +b -waves waves_uart.mxd'
+  - name: gray_decoder_sim
+    options: >-
+      -top dut_gray_decoder.tb_top_module_deco_gray -L dut_gray_decoder +acc +b
+      -waves waves_gray_decoder.mxd
+  - name: carry_look_ahead_adder_sim
+    options: >-
+      -top dut_adders.tb_module_carry_look_ahead_adder -L dut_adders +acc +b
+      -waves waves_carry_look_ahead_adder.mxd
+  - name: ripple_carry_adder_sim
+    options: >-
+      -top dut_adders.tb_module_ripple_carry_adder -L dut_adders +acc +b -waves
+      waves_ripple_carry_adder.mxd
+  - name: full_adder_sim
+    options: >-
+      -top dut_adders.tb_module_bit_full_adder -L dut_adders +acc +b -waves
+      waves_full_adder.mxd
+source_files:
+  - language: verilog
+    path: gray_decoder_list.txt
+    library_name: dut_gray_decoder
+    file_list: relative-to-file
+  - language: vhdl
+    path: uart_list_vhdl.txt
+    library_name: dut_uart
+    file_list: relative-to-file
+  - language: verilog
+    path: uart_list_sv.txt
+    library_name: dut_uart
+    file_list: relative-to-file
+  - language: verilog
+    path: adders_list.txt
+    library_name: dut_adders
+    file_list: relative-to-file
+library_search_paths:
+  - $STD_LIBS\ieee93

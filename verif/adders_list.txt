@@ -1,0 +1,12 @@
+# Adders sv/v Files
+
+# List of Testbench Files
+\tests\tb_module_bit_full_adder.sv
+\tests\tb_module_carry_look_ahead_adder.sv
+\tests\tb_module_ripple_carry_adder.sv
+
+# List of Design Files
+..\src\rtl\adders\module_bit_full_adder.sv
+..\src\rtl\adders\module_carry_look_ahead_adder.sv
+..\src\rtl\adders\module_ripple_carry_adder.sv
+
