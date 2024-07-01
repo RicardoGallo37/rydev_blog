@@ -11,46 +11,34 @@ simulations:
     options: >-
       -top dut_gray_decoder.tb_top_module_deco_gray -L dut_gray_decoder +acc +b
       -waves waves_gray_decoder.mxd
+  - name: carry_look_ahead_adder_sim
+    options: >-
+      -top dut_adders.tb_module_carry_look_ahead_adder -L dut_adders +acc +b
+      -waves waves_carry_look_ahead_adder.mxd
+  - name: ripple_carry_adder_sim
+    options: >-
+      -top dut_adders.tb_module_ripple_carry_adder -L dut_adders +acc +b -waves
+      waves_ripple_carry_adder.mxd
+  - name: full_adder_sim
+    options: >-
+      -top dut_adders.tb_module_bit_full_adder -L dut_adders +acc +b -waves
+      waves_full_adder.mxd
 source_files:
-  - language: verilog
-    path: ..\src\rtl\UART\module_control_register_uart.sv
-    library_name: dut_uart
-  - language: verilog
-    path: ..\src\rtl\UART\module_data_register_uart.sv
-    library_name: dut_uart
-  - language: verilog
-    path: ..\src\rtl\UART\module_fsm_rx.sv
-    library_name: dut_uart
-  - language: verilog
-    path: ..\src\rtl\UART\module_fsm_tx.sv
-    library_name: dut_uart
-  - language: verilog
-    path: ..\src\rtl\UART\module_mux_2_1.sv
-    library_name: dut_uart
-  - language: verilog
-    path: ..\src\rtl\UART\module_dmux_1_2.sv
-    library_name: dut_uart
-  - language: verilog
-    path: ..\src\rtl\UART\pkg_UART.sv
-    library_name: dut_uart
-  - language: verilog
-    path: ..\src\rtl\UART\top_module_UART.sv
-    library_name: dut_uart
-  - language: vhdl
-    path: ..\src\rtl\UART\UART_rx.vhd
-    library_name: dut_uart
-  - language: vhdl
-    path: ..\src\rtl\UART\UART_tx.vhd
-    library_name: dut_uart
-  - language: vhdl
-    path: ..\src\rtl\UART\UART.vhd
-    library_name: dut_uart
-  - language: verilog
-    path: tests\tb_top_module_UART.sv
-    library_name: dut_uart
   - language: verilog
     path: gray_decoder_list.txt
     library_name: dut_gray_decoder
+    file_list: relative-to-file
+  - language: vhdl
+    path: uart_list_vhdl.txt
+    library_name: dut_uart
+    file_list: relative-to-file
+  - language: verilog
+    path: uart_list_sv.txt
+    library_name: dut_uart
+    file_list: relative-to-file
+  - language: verilog
+    path: adders_list.txt
+    library_name: dut_adders
     file_list: relative-to-file
 library_search_paths:
   - $STD_LIBS\ieee93
