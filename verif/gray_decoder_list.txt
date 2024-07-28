@@ -1,7 +1,7 @@
 # Gray decoder Files
 
 # List of Testbench Files
-\tests\tb_top_module_deco_gray.sv
+.\tests\tb_top_module_deco_gray.sv
 
 # List of Design Files
 ..\src\rtl\gray_decoder\module_7_segments.v
