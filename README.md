@@ -28,18 +28,9 @@ These are the steps to set up the project locally...
 1. Clone the repository
 ```git clone https://github.com/username/rydev-blog.git```
 
-
-## Tests
-
-TBD
-
-## Deployment
-
-TBD
-
 ## Contributing
 
-TBD
+For more information please go to the wiki, currently in development [Simulate RTL Designs with Ease](https://github.com/RicardoGallo37/rydev_blog/wiki/Dsim-Demo:-Simulate-RTL-Designs-with-Ease)
 
 ## License
 
