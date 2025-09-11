@@ -1,0 +1,47 @@
+# 🔧 Simulation outputs
+*.vcd
+*.log
+*.wdb
+*.fsdb
+*.ucdb
+*.dmp
+*.bak
+
+# 🧪 DSim artifacts
+image/
+dsim_image/
+dsim_work/
+*.dsim
+*.env
+*.db
+*.mxd
+
+# 📁 Generated RTL and headers
+rtl/
+include/
+docs/
+
+# 📦 PeakRDL cache or temp files
+*.rdlc
+*.html
+
+# 🖼 GTKWave config
+*.gtkw
+*.sav
+
+# ⚙️ Build scripts and temporary files
+*.out
+*.o
+*.exe
+*.bin
+*.elf
+
+# 💻 IDE and editor configs
+.vscode/
+*.swp
+*.swo
+*.tmp
+
+# 🚫 System files
+.DS_Store
+Thumbs.db
