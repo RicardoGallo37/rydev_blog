@@ -16,11 +16,6 @@ dsim_work/
 *.db
 *.mxd
 
-# 📁 Generated RTL and headers
-rtl/
-include/
-docs/
-
 # 📦 PeakRDL cache or temp files
 *.rdlc
 *.html
