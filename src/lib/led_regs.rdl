@@ -1,0 +1,23 @@
+addrmap led_regs {
+    // Definition of the register type
+    reg CONTROL {
+        field {
+            name = "ENABLE";
+            desc = "Enable LED blinking";
+            sw = rw;       // Read/Write from software
+            hw = r;        // Read from hardware
+            reset = 0;     // Reset value
+        } ENABLE[1];
+
+        field {
+            name = "BLINK_RATE";
+            desc = "Blink rate control";
+            sw = rw;       // Read/Write from software
+            hw = r;        // Read from hardware
+            reset = 2;     // Reset value
+        } BLINK_RATE[4];
+    };
+
+    // Register instantiation at address 0x00
+    CONTROL control_inst @0x00;
+};

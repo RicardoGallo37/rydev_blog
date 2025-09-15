@@ -23,6 +23,10 @@ simulations:
     options: >-
       -top dut_adders.tb_module_bit_full_adder -L dut_adders +acc +b -waves
       waves_full_adder.mxd
+  - name: led_controller_sim
+    options: >-
+      -top tb_peak_rdl_demo -L led_controller_demo_peak_rdl +acc +b -waves
+      waves_led_controller.mxd
 source_files:
   - language: verilog
     path: gray_decoder_list.txt
@@ -39,6 +43,10 @@ source_files:
   - language: verilog
     path: adders_list.txt
     library_name: dut_adders
+    file_list: relative-to-file
+  - language: verilog
+    path: peak_rdl_demo_filelist.f
+    library_name: led_controller_demo_peak_rdl
     file_list: relative-to-file
 library_search_paths:
   - $STD_LIBS\ieee93
