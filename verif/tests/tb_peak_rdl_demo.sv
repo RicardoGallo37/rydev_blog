@@ -76,6 +76,14 @@ module tb_peak_rdl_demo;
 
         repeat (50) @(posedge clk);
 
+        // Disable LED
+        csr_write_task(32'h0000_0000, 32'h0000_0004); // ENABLE=0, BLINK_RATE=2
+
+        // Read CONTROL register
+        csr_read_task(32'h0000_0000);
+
+        repeat (50) @(posedge clk);
+
         $finish;
     end
 

@@ -26,7 +26,7 @@ simulations:
   - name: led_controller_sim
     options: >-
       -top tb_peak_rdl_demo -L led_controller_demo_peak_rdl +acc +b -waves
-      waves_led_controller.mxd
+      waves_led_controller.vcd
 source_files:
   - language: verilog
     path: gray_decoder_list.txt
