@@ -61,27 +61,26 @@ module tb_peak_rdl_demo;
 
         // Write ENABLE = 1 and BLINK_RATE = 2 (bits [4:1])
         csr_write_task(32'h0000_0000, 32'h0000_0005); // ENABLE=1, BLINK_RATE=2
-
         // Read CONTROL register
         csr_read_task(32'h0000_0000);
-
-        // Wait some time to observe LED blinking
         repeat (50) @(posedge clk);
 
         // Change BLINK_RATE to 1 (faster)
         csr_write_task(32'h0000_0000, 32'h0000_0003);
-
         // Read CONTROL register
         csr_read_task(32'h0000_0000);
+        repeat (50) @(posedge clk);
 
+        // Change BLINK_RATE to 0 (fastest)
+        csr_write_task(32'h0000_0000, 32'h0000_0001);
+        // Read CONTROL register
+        csr_read_task(32'h0000_0000);
         repeat (50) @(posedge clk);
 
         // Disable LED
-        csr_write_task(32'h0000_0000, 32'h0000_0004); // ENABLE=0, BLINK_RATE=2
-
+        csr_write_task(32'h0000_0000, 32'h0000_0000); // ENABLE=0, BLINK_RATE=2
         // Read CONTROL register
         csr_read_task(32'h0000_0000);
-
         repeat (50) @(posedge clk);
 
         $finish;
